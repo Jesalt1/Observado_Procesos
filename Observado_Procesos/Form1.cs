@@ -154,6 +154,31 @@ namespace Observado_Procesos
 
         }
 
+        static async Task pruebas2()
+        {
+            SqlConnection oCon;
+            SqlDataAdapter oRs;
+            SqlCommand ocomand;
+            gConnectionSql.gConnection oconexion = new gConnection();
+
+
+            oCon = null;
+
+            string hola = sgtipo;
+            string adios;
+            // Suponiendo que oconexion es una instancia de gConnectionSql.gConnection
+            if (oconexion.gConexion(sgtipo, sgprovider, sgservidor, sgbaseapp, sguser, sgpw, ref oCon))
+            {
+                Console.WriteLine("Entre");
+                //return; // o Exit Sub en VB.NET
+                Console.WriteLine("***************************************************************************************");
+            }
+            Console.WriteLine("aqui");
+            // Continuar con el resto del código si la condición es verdadera
+
+
+        }
+
         private async Task ExtraccionFacturasMeypar()
         {
             int ierror;
@@ -242,6 +267,7 @@ namespace Observado_Procesos
             }
             catch (Exception ex) 
             {
+                //pruebas
                 Console.WriteLine($"Error al ejecutar el stored procedure: {ex.Message}");
 
                 this.UTextEditorResponse.Text = $"Error al ejecutar el stored procedure: {ex.Message}";
